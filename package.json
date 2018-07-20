@@ -9,6 +9,7 @@
     "build": "node config/build.js"
   },
   "devDependencies": {
+    "autoprefixer": "^9.0.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",

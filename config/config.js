@@ -64,6 +64,9 @@ const config = {
             : { loader: "vue-style-loader" },
           {
             loader: "css-loader"
+          },
+          {
+            loader: "postcss-loader"
           }
         ]
       },

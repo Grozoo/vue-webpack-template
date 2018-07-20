@@ -16,5 +16,9 @@ export default {
 <style lang="css">
 #app {
   color: red;
+  transition: color 0.3s;
+}
+#app:hover {
+  color: seagreen;
 }
 </style>
