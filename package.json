@@ -4,20 +4,24 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --colors ",
-    "build": "cross-env NODE_ENV=production webpack --progress --colors "
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config config/config.js --hot --inline --progress",
+    "text": "cross-env NODE_ENV=production webpack --progress --colors ",
+    "build": "node config/build.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
+    "chalk": "^2.4.1",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.1",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "ora": "^3.0.0",
     "postcss-loader": "^2.1.6",
+    "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "vue-loader": "^15.2.4",

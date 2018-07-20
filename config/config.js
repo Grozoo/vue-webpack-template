@@ -15,15 +15,16 @@ const minify = {
 const extract = isprod;
 
 const config = {
+  context: path.resolve(__dirname, "../"),
   mode: isprod ? "production" : "development",
   devtool: isprod ? false : "cheap-module-source-map",
-  /* context: path.resolve(__dirname, '../'), */
+
   entry: {
     app: "./src/index.js"
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].[chunkhash].js",
+    path: path.resolve(__dirname, "../build"),
+    filename: "js/[name].[hash].js",
     chunkFilename: "js/[id].[chunkhash].js",
     publicPath: "/"
   },
@@ -116,9 +117,12 @@ if (!isprod) {
     open: true,
     contentBase: path.resolve(__dirname, "dist"),
     host: "localhost",
-    port: 1215
-    //compress: true
+    port: 1215,
+    clientLogLevel: "warning",
+    compress: true,
+    quiet: true
   };
+
   /* config.proxyTable = {
 		//https://github.com/chimurai/http-proxy-middleware
 	}; */
@@ -129,7 +133,7 @@ if (!isprod) {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: isprod ? false : "cheap-module-source-map", // set to true if you want JS source maps,
+        sourceMap: isprod ? false : "cheap-module-source-map",
         uglifyOptions: {
           warnings: false
         }
