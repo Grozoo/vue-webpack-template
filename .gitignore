@@ -1,0 +1,8 @@
+# node package
+node_modules
+
+#production
+dist
+
+#others
+yarn-error.log
