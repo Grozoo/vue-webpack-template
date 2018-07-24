@@ -20,7 +20,7 @@ const config = {
   devtool: isprod ? false : "cheap-module-source-map",
 
   entry: {
-    app: "./src/index.js"
+    app: "./src/main.js"
   },
   output: {
     path: path.resolve(__dirname, "../build"),

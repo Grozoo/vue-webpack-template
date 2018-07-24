@@ -1,24 +1,25 @@
 <template>
   <div id="app">
-    <h1>Hello</h1>
-    <strong>{{Msg}}</strong>
+    <app-header></app-header>
+    <router-view></router-view>
   </div>
 </template>
+
 <script>
-console.log("fuck vue");
+import AppHeader from "./components/Header";
 export default {
   name: "app",
-  data() {
-    return { Msg: "hello world" };
+  components: {
+    AppHeader
   }
 };
 </script>
-<style lang="css">
+
+<style>
 #app {
-  color: red;
-  transition: color 0.3s;
-}
-#app:hover {
-  color: seagreen;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 62px;
 }
 </style>

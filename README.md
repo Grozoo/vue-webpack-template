@@ -1,2 +1,5 @@
 # vue-webpack4
-vue+webpack4+others
+
+- 代码拆分 / 按需加载
+- HMR
+- autoprefixer
