@@ -10,7 +10,14 @@ const isprod = process.env.NODE_ENV === "production";
 const minify = {
   removeComments: true,
   collapseWhitespace: true,
-  removeAttributeQuotes: true
+  removeRedundantAttributes: true,
+  useShortDoctype: true,
+  removeEmptyAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  keepClosingSlash: true,
+  minifyJS: true,
+  minifyCSS: true,
+  minifyURLs: true
 };
 const extract = isprod;
 
@@ -24,12 +31,9 @@ const config = {
   },
   output: {
     path: path.resolve(__dirname, "../build"),
-    filename: "js/[name].[hash].js",
-    chunkFilename: "js/[id].[chunkhash].js",
+    filename: "js/[name].[chunkhash:8].js",
+    chunkFilename: "js/[name].[chunkhash:8].chunk.js",
     publicPath: "/"
-  },
-  resolve: {
-    extensions: [".js", ".vue"]
   },
   resolve: {
     extensions: [".js", ".vue"]
@@ -99,8 +103,8 @@ const config = {
   plugins: [
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: "css/app.[name].css",
-      chunkFilename: "css/app.[contenthash:12].css"
+      filename: "css/[name].css",
+      chunkFilename: "css/[name].[contenthash:8].css"
     }),
     new HtmlWebpackPlugin({
       inject: true,
@@ -131,7 +135,7 @@ if (!isprod) {
 	}; */
 } else {
   config.optimization = {
-    runtimeChunk: { name: "manifest" },
+    //runtimeChunk: { name: "manifest" },
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
